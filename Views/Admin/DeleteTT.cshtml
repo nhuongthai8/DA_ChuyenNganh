@@ -1,0 +1,56 @@
+﻿@model DACN.Models.TinTuc
+
+@{
+    ViewBag.Title = "DeleteTT";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Xóa Tin Tức</h2>
+
+<h3>Bạn có thực sự muốn xóa không?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Loại Tin
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheLoaiTin.TenLoai)
+        </dd>
+
+        <dt>
+            Tiêu Đề
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TieuDe)
+        </dd>
+
+        <dt>
+            Nội Dung
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+
+        <dt>
+            Ảnh Bìa
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/HinhTT/"+ Model.Anhbia)" width="120px" />
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở Về Danh Sách", "TinTuc")
+        </div>
+    }
+</div>

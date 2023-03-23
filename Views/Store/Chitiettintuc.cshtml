@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Chitiettintuc";
+    Layout = "~/Views/Shared/_TrangChu3.cshtml";
+}
+
+<h2 style="text-align:center">NỘI DUNG TIN TỨC</h2>
+<div>
+    <div style="width:40%; float:left; border-left:dotted 1px;border-color:azure">
+        <img src="~/HinhTT/@Model.Anhbia" style="width:100%" />
+    </div>
+    <div style="width:60%; float:left; padding:10px">
+        <h4 style="font-weight:bold">Tiêu Đề: <span style="color:red">@Model.TieuDe</span></h4>
+        <p style="text-align:justify"><span style="font-weight:bold">Loại Tin: </span>@Model.TheLoaiTin.TenLoai</p>
+        <p style="text-align:justify"><span style="font-weight:bold">Nội Dung: </span>@Model.NoiDung</p>
+    </div>
+    <div>
+        <div>
+            <a href="@Url.Action("IndexTinTuc","Store")" class="list-group-item" style="float:right">
+                TRỞ VỀ
+            </a>
+        </div>
+    </div>
+</div>
+
+

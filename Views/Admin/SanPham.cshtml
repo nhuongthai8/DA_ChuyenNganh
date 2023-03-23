@@ -1,0 +1,136 @@
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<DACN.Models.SanPham>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<textarea>...</textarea>
+    }
+}
+
+@{
+    ViewBag.Title = "SanPham";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Sản Phẩm</h2>
+
+<p>
+    @Html.ActionLink("Tạo Mới", "CreateSP")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã SP
+        </th>
+        <th>
+            Loại SP
+        </th>
+        <th>
+            Thương Hiệu
+        </th>
+        <th>
+            Tên SP
+        </th>
+        <th>
+            Giá Tiền
+        </th>
+        <th>
+            Nội Dung
+        </th>
+        <th>
+            Năm Sản Xuất
+        </th>
+        <th>
+            HSD
+        </th>
+        <th>
+            Số Lượng
+        </th>
+        <th>
+            Ngày Nhập
+        </th>
+        <th>
+            Đơn Vị Tính
+        </th>
+        <th>
+            Hình
+        </th>
+        <th>
+            Bảo Quản
+        </th>
+        <th>
+            Thành Phần
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idLoaiSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoaiSP.TenLSP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThuongHieu.TenTH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSP)
+            </td>
+            <td>
+                @String.Format("{0:0,0}", item.GiaTien) VNĐ
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoiDung)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamSanXuat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HSD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuongTon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayNhap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonViTinh)
+            </td>
+            <td>
+                <img src="@Url.Content("~/HinhSP/"+ item.HinhSP)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BaoQuan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThanhPhan)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "EditSP", new { id = item.idSP }) |
+                @Html.ActionLink("Chi Tiết", "DetailsSP", new { id = item.idSP }) |
+                @Html.ActionLink("Xóa", "DeleteSP", new { id = item.idSP })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div style="text-align:center">
+    <div>
+        @*Tạo liên kết các trang*@
+        Trang @(Model.PageNumber>Model.PageCount?10:Model.PageNumber) /@Model.PageCount
+    </div>
+    <div class="Menutrang">
+        @Html.PagedListPager(Model, page => Url.Action("SanPham", new { page = page }))
+    </div>
+</div>

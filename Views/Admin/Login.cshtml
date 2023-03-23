@@ -1,0 +1,83 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link href="~/Content/DangNhapAdminCSS/fonts/icomoon/style.css" rel="stylesheet" />
+
+    <link href="~/Content/DangNhapAdminCSS/css/owl.carousel.min.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/DangNhapAdminCSS/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Style -->
+    <link href="~/Content/DangNhapAdminCSS/css/style.css" rel="stylesheet" />
+    <title>Admin Đăng Nhập</title>
+</head>
+<body>
+
+
+
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 order-md-2">
+                    <img src="~/Icons/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-6 contents">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="mb-4">
+                                <h3>Trang Quản Lý <strong>Shree</strong></h3>
+                            </div>
+                            @using (Html.BeginForm())
+                            {
+                                <form action="#" method="post">
+                                    <div class="form-group last mb-4">
+                                        <h4 style="color:red; text-align:center">@ViewBag.ThongBao</h4>
+                                    </div>
+
+                                    
+                                    <div class="form-group first">
+                                        <label for="username">Tên Đăng Nhập</label>
+                                        <input type="text" class="form-control" name="username">
+                                        @ViewData["Loi1"]
+                                    </div>
+                                    
+
+                                    
+                                    <div class="form-group last mb-4">
+                                        <label for="password">Mật Khẩu</label>
+                                        <input type="password" class="form-control" name="password">
+                                        @ViewData["Loi2"]
+                                    </div>
+                                    
+
+                                    <div class="d-flex mb-5 align-items-center">
+                                        <span class="ml-auto"><a href="@Url.Action("Index","Store")" class="forgot-pass">Trang Chủ</a></span>
+                                    </div>
+                                    <input type="submit" value="Đăng Nhập" class="btn text-white btn-block btn-primary">
+                                </form>
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Scripts/DangNhapAdminJS/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/DangNhapAdminJS/js/main.js"></script>
+    <script src="~/Scripts/DangNhapAdminJS/js/popper.min.js"></script>
+    <script src="~/Scripts/DangNhapAdminJS/js/bootstrap.min.js"></script>
+</body>
+</html>

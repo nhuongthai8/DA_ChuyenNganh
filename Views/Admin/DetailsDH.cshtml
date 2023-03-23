@@ -1,0 +1,98 @@
+﻿@model DACN.Models.ChiTietOrder
+
+@{
+    ViewBag.Title = "DetailsDH";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Chi Tiết Đơn Hàng</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Mã Order:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaOrder)
+        </dd>
+
+        <dt>
+            Mã SP:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idSP)
+        </dd>
+
+        <dt>
+            Tên SP:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SanPham.TenSP)
+        </dd>
+
+        <dt>
+            Ảnh bìa:
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/HinhSP/"+ Model.SanPham.HinhSP)" />
+        </dd>
+
+        <dt>
+            Số lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt>
+            Đơn giá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGia)
+        </dd>
+
+        <dt>
+            Ngày tạo:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.NgayTao)
+        </dd>
+
+        <dt>
+            Ngày giao:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.NgayGiao)
+        </dd>
+
+        <dt>
+            Tình trạng thanh toán:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.TinhTrangTT)
+        </dd>
+
+        <dt>
+            Tình trạng giao hàng:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.TinhTrangGH)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "EditDH", new { id = Model.MaOrder }) |
+    @Html.ActionLink("Trở Về Danh Sách", "DonHang")
+</p>

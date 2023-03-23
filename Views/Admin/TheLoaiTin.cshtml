@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DACN.Models.TheLoaiTin>
+
+@{
+    ViewBag.Title = "TheLoaiTin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Danh Sách Thể Loại Tin</h2>
+
+<p>
+    @Html.ActionLink("Tạo Mới", "CreateTLT")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã loại
+        </th>
+        <th>
+            Tên Loại
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.idLoai)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TenLoai)
+    </td>
+    <td>
+        @Html.ActionLink("Sửa", "EditTLT", new { id = item.idLoai }) |
+        @Html.ActionLink("Xóa", "DeleteTLT", new { id = item.idLoai })
+    </td>
+</tr>
+}
+
+</table>

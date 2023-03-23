@@ -1,0 +1,40 @@
+﻿@model DACN.Models.LoaiSP
+
+@{
+    ViewBag.Title = "DeleteLSP";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Xóa Loại Sản Phẩm</h2>
+
+<h3 style="color:red">Có có thực sự muốn xóa không?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Danh Mục
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanhMuc.TenCate)
+        </dd>
+
+        <dt>
+            Tên Loại Sản Phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLSP)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở Về Danh Sách", "LoaiSanPham")
+        </div>
+    }
+</div>

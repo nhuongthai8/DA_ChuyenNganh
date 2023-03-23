@@ -1,0 +1,52 @@
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<DACN.Models.LoaiSP>
+
+@{
+    ViewBag.Title = "LoaiSanPham";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Loại Sản Phẩm</h2>
+
+<p>
+    @Html.ActionLink("Tạo Mới", "CreateLSP")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên Danh Mục
+        </th>
+        <th>
+            Tên Loại SP
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DanhMuc.TenCate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenLSP)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "EditLSP", new { id = item.idLoaiSP }) |
+                @Html.ActionLink("Chi Tiết", "DetailsLSP", new { id = item.idLoaiSP }) |
+                @Html.ActionLink("Xóa", "DeleteLSP", new { id = item.idLoaiSP })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div style="text-align:center">
+    <div>
+        @*Tạo liên kết các trang*@
+        Trang @(Model.PageNumber>Model.PageCount?10:Model.PageNumber) /@Model.PageCount
+    </div>
+    <div class="Menutrang">
+        @Html.PagedListPager(Model, page => Url.Action("LoaiSanPham", new { page = page }))
+    </div>
+</div>

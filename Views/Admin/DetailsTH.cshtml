@@ -1,0 +1,66 @@
+﻿@model DACN.Models.ThuongHieu
+
+@{
+    ViewBag.Title = "DetailsTH";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Thông Tin Chi Tiết Thương Hiệu</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idThuongHieu)
+        </dd>
+
+        <dt>
+            Tên Thương Hiệu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTH)
+        </dd>
+
+        <dt>
+            SĐT
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            Năm Thành Lập
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamThanhLap)
+        </dd>
+
+        <dt>
+            Địa Chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            Mail
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mail)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "EditTH", new { id = Model.idThuongHieu }) |
+    @Html.ActionLink("Trở Về Danh Sách", "ThuongHieu")
+</p>

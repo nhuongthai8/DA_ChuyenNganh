@@ -1,0 +1,48 @@
+﻿@model IEnumerable<DACN.Models.LienHe>
+
+@{
+    ViewBag.Title = "LienHe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Thông Tin Liên Hệ</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Họ Tên
+        </th>
+        <th>
+            Mail
+        </th>
+        <th>
+            SĐT
+        </th>
+        <th>
+            Nội Dung
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoTen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoiDung)
+        </td>
+        <td>
+            @Html.ActionLink("Chi Tiết", "DetailsLH", new { id=item.id }) |
+            @Html.ActionLink("Xóa", "DeleteLH", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,72 @@
+﻿@model DACN.Models.ThuongHieu
+
+@{
+    ViewBag.Title = "DeleteTH";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Xóa Thương Hiệu</h2>
+
+<h3>Bạn có thực sự muốn xóa Thương hiệu này không?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            ID
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idThuongHieu)
+        </dd>
+
+        <dt>
+            Tên Thương Hiệu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTH)
+        </dd>
+
+        <dt>
+            SĐT
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            Năm Thành Lập
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamThanhLap)
+        </dd>
+
+        <dt>
+            Địa Chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            Mail
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mail)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở Về Danh Sách", "ThuongHieu")
+        </div>
+    }
+</div>

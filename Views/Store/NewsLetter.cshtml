@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div class="address">
+        <h3>Đăng Ký Nhận Tin</h3>
+        <div class="container">
+            <form class="news">
+                <input class="newslatter form-control" placeholder="Nhập vào eMail" type="text" name="Mail">
+                <br />
+                <button class="submit">Đăng Ký</button>
+            </form>
+        </div>
+    </div>
+}

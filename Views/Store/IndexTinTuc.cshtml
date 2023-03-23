@@ -1,0 +1,37 @@
+﻿@*@model IEnumerable<DACN.Models.TinTuc>*@
+@using DACN.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<TinTuc>
+
+@{
+    ViewBag.Title = "IndexTinTuc";
+    Layout = "~/Views/Shared/_TrangChu3.cshtml";
+}
+
+<br />
+<h2 style="text-align: center">TẤT CẢ TIN TỨC</h2>
+@foreach (var tt in Model)
+{
+    <div class="col-sm-3 col-lg-6 col-md-3">
+        <div class="thumbnail">
+            <a href="@Url.Action("Chitiettintuc","Store",new { id = tt.idTT})">
+                <img alt="@tt.TieuDe" src="~/HinhTT/@tt.Anhbia" style="width:300px" />
+                <div>
+                    <br />
+                    <h4 style="text-align:center">
+                        @tt.TieuDe
+                    </h4>
+                </div>
+            </a>
+        </div>
+    </div>
+}
+<div style="text-align:center">
+    <div>
+        @*Tạo liên kết các trang*@
+        Trang @(Model.PageNumber>Model.PageCount?10:Model.PageNumber) /@Model.PageCount
+    </div>
+    <div class="Menutrang">
+        @Html.PagedListPager(Model, page => Url.Action("IndexTinTuc", new { page = page }))
+    </div>
+</div>

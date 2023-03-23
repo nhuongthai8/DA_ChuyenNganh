@@ -1,0 +1,64 @@
+﻿@model IEnumerable<DACN.Models.ThuongHieu>
+
+@{
+    ViewBag.Title = "ThuongHieu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Danh Sách Thương Hiệu</h2>
+
+<p>
+    @Html.ActionLink("Tạo Mới", "CreateTH")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Tên Thương Hiệu
+        </th>
+        <th>
+            SĐT
+        </th>
+        <th>
+            Năm Thành Lập
+        </th>
+        <th>
+            Địa Chỉ
+        </th>
+        <th>
+            Mail
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.idThuongHieu)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TenTH)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SDT)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NamThanhLap)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DiaChi)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Mail)
+    </td>
+    <td>
+        @Html.ActionLink("Sửa", "EditTH", new { id = item.idThuongHieu }) |
+        @Html.ActionLink("Chi Tiết", "DetailsTH", new { id = item.idThuongHieu }) |
+        @Html.ActionLink("Xóa", "DeleteTH", new { id = item.idThuongHieu })
+    </td>
+</tr>
+}
+
+</table>

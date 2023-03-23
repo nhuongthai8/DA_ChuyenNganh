@@ -1,0 +1,32 @@
+﻿@model DACN.Models.TheLoaiTin
+
+@{
+    ViewBag.Title = "DeleteTLT";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Xóa Thể Loại Tin</h2>
+
+<h3>Bạn có thực sự muốn xóa không?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Loại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLoai)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở Về Danh Sách", "TheLoaiTin")
+        </div>
+    }
+</div>

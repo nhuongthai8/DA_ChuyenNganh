@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DACN.Models.NewsLetter>
+
+@{
+    ViewBag.Title = "NewsLetter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Mail Nhận Tin</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Mail
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Mail)
+    </td>
+    <td>
+        @Html.ActionLink("Xóa", "DeleteNL", new { id = item.id })
+    </td>
+</tr>
+}
+
+</table>

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<DACN.Models.TinTuc>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<textarea>...</textarea>
+    }
+}
+
+@{
+    ViewBag.Title = "TinTuc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Danh Sách Tin Tức</h2>
+
+<p>
+    @Html.ActionLink("Tạo Mới", "CreateTT")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Loại Tin
+        </th>
+        <th>
+            Tiêu Đề
+        </th>
+        <th>
+            Nội Dung
+        </th>
+        <th>
+            Ảnh Bìa
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TheLoaiTin.TenLoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TieuDe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoiDung)
+            </td>
+            <td>
+                <img src="@Url.Content("~/HinhTT/"+ item.Anhbia)" width="120px" />
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "EditTT", new { id = item.idTT }) |
+                @Html.ActionLink("Chi Tiết", "DetailsTT", new { id = item.idTT }) |
+                @Html.ActionLink("Xóa", "DeleteTT", new { id = item.idTT })
+            </td>
+        </tr>
+    }
+
+</table>
+

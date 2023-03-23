@@ -1,0 +1,34 @@
+﻿@model IEnumerable<DACN.Models.DanhMuc>
+
+@{
+    ViewBag.Title = "DanhMuc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Danh Mục Sản Phẩm</h2>
+
+<p>
+    @Html.ActionLink("Tạo Mới", "CreateDM")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên Danh Mục
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenCate)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "EditDM", new { id=item.idCate }) |
+            @Html.ActionLink("Chi Tiết", "DetailsDM", new { id=item.idCate }) |
+            @Html.ActionLink("Xóa", "DeleteDM", new { id=item.idCate })
+        </td>
+    </tr>
+}
+
+</table>

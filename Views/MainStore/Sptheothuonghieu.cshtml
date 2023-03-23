@@ -1,0 +1,27 @@
+﻿@model IEnumerable<DACN.Models.SanPham>
+@{
+    ViewBag.Title = "Sptheodanhmuc";
+    Layout = "~/Views/Shared/_TrangChu2.cshtml";
+}
+
+<br />
+<h2 style="text-align:center">SẢN PHẨM THEO THƯƠNG HIỆU</h2>
+@foreach (var sp in Model)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <a href="@Url.Action("Chitietsanpham","MainStore",new { id = sp.idSP})">
+                <img alt="@sp.TenSP" src="~/HinhSP/@sp.HinhSP" style="width:200px" />
+                <div>
+                    <br />
+                    <h4 style="text-align:center">
+                        @sp.TenSP
+                    </h4>
+                    <p style="text-align:center">
+                        <span class="glyphicon glyphicon-tag" style="text-indent: 5px; color: red"></span> @String.Format("{0:0,0}", @sp.GiaTien) VNĐ
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+}

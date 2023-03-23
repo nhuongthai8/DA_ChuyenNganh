@@ -1,0 +1,9 @@
+﻿@model IEnumerable<DACN.Models.DanhMuc>
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("Sptheodanhmuc","MainStore", new { id = item.idCate})" class="list-group-item">
+            @item.TenCate
+        </a>
+    }
+</div>

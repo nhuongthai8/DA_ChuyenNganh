@@ -1,0 +1,26 @@
+﻿@model DACN.Models.DanhMuc
+
+@{
+    ViewBag.Title = "DetailsDM";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">Chi Tiết Danh Mục</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Danh Mục
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenCate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "EditDM", new { id = Model.idCate }) |
+    @Html.ActionLink("Trở Về Danh Sách", "DanhMuc")
+</p>

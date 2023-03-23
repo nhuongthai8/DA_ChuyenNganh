@@ -1,0 +1,130 @@
+﻿@model DACN.Models.SanPham
+
+@{
+    ViewBag.Title = "DetailsSP";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align: center">Chi Tiết Sản Phẩm</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Loại Sản Phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiSP.TenLSP)
+        </dd>
+
+        <dt>
+            Danh Mục
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanhMuc.TenCate)
+        </dd>
+
+        <dt>
+            Thương Hiệu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThuongHieu.TenTH)
+        </dd>
+
+        <dt>
+            Tên Sản Phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSP)
+        </dd>
+
+        <dt>
+            Giá Tiền
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,0}", Model.GiaTien) VNĐ
+        </dd>
+
+        <dt>
+            Nội Dung
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+
+        <dt>
+            Năm Sản Xuất
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamSanXuat)
+        </dd>
+
+        <dt>
+            Hạn Sử Dụng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HSD)
+        </dd>
+
+        <dt>
+            Số Lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongTon)
+        </dd>
+
+        <dt>
+            Ngày Nhập
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayNhap)
+        </dd>
+
+        <dt>
+            Đơn Vị Tính
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonViTinh)
+        </dd>
+
+        <dt>
+            Hình
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/HinhSP/"+ Model.HinhSP)" width="120px" />
+        </dd>
+
+        <dt>
+            Bảo Quản
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaoQuan)
+        </dd>
+
+        <dt>
+            Thành Phần
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThanhPhan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "EditSP", new { id = Model.idSP }) |
+    @Html.ActionLink("Trở Về Danh Sách", "SanPham")
+</p>

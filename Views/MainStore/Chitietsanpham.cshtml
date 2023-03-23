@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Chitietsanpham";
+    Layout = "~/Views/Shared/_TrangChu2.cshtml";
+}
+
+<h2 style="text-align:center">THÔNG TIN CHI TIẾT SẢN PHẨM</h2>
+<section>
+    <div>
+        <div style="width:40%; float:left; border-left:dotted 1px;border-color:azure">
+            <img src="~/HinhSP/@Model.HinhSP" style="width:100%" />
+        </div>
+        <div style="width:60%; float:left; padding:10px">
+            <h4 style="font-weight:bold">Tên sản phẩm: <span style="color:red">@Model.TenSP</span></h4>
+            <p style="text-align:justify"><span style="font-weight:bold">Mô Tả: </span>@Model.NoiDung</p>
+            <p style="text-align:justify"><span style="font-weight:bold">Bảo Quản: </span>@Model.BaoQuan</p>
+            <p style="text-align:justify"><span style="font-weight:bold">Năm Sản Xuất: </span>@Model.NamSanXuat</p>
+            <p style="text-align:justify"><span style="font-weight:bold">Thương Hiệu: </span>@Model.ThuongHieu.TenTH</p>
+            <p style="text-align:justify"><span style="font-weight:bold">Xuất Xứ: </span>@Model.ThuongHieu.DiaChi</p>
+            <p style="text-align:justify"><span style="font-weight:bold">Loại Sản Phẩm: </span>@Model.LoaiSP.TenLSP</p>
+            <p style="text-align:justify"><span style="font-weight:bold">Đơn Vị Tính: </span>@Model.DonViTinh</p>
+            <p style="text-align:justify"><span style="font-weight:bold">Tồn Kho: </span>@Model.SoLuongTon</p>
+            <p style="text-align:justify"><span style="font-weight:bold">Ngày nhập: </span>@Model.NgayNhap</p>
+            <p style="text-align:justify"><span style="font-weight:bold">Thành Phần: </span>@Model.ThanhPhan</p>
+            <p style="text-align:justify"><span style="font-weight:bold">Danh Mục: </span>@Model.DanhMuc.TenCate</p>
+            <p style="font-weight: bold">Giá Bán: <span style="color:red; font-size:16pt"> @String.Format("{0:0,0}", @Model.GiaTien) @*@Model.GiaTien*@ VNĐ</span></p>
+        </div>
+        <div>
+            <div>
+                <a href="@Url.Action("Themgiohang","GioHang", new { @iMaSP= @Model.idSP, @strURL= Request.Url.ToString()})" class="list-group-item" style="float:right">
+                    ĐẶT HÀNG
+                </a>
+            </div>
+            <div>
+                <a href="@Url.Action("Sanpham","MainStore")" class="list-group-item" style="float:right">
+                    TRỞ VỀ
+                </a>
+            </div>
+        </div>
+        <br />
+    </div>
+</section>
+<section>
+    <h2 style="color:ghostwhite;">-</h2>
+    <div style="padding-top: 20px">
+        @Html.Action("SpLienQuan", "MainStore", new { id = Model.idSP , idLSP = Model.idLoaiSP})
+    </div>
+</section>
+
+
+
+
